@@ -1,3 +1,10 @@
+# Eclipse and all
+.settings
+.project
+.classpath
+.gradle
+bin
+
 # Compiled class file
 *.class
 
