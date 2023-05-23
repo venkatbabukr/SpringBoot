@@ -6,9 +6,6 @@ spring:
     driverClassName: org.h2.Driver
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
-    # Not recommended as this will simply logs everything onto console (Standard output) without
-    # any optimizations of a logging framework. See: https://www.baeldung.com/sql-logging-spring-boot
-    show-sql: true
     hibernate:
       ddl-auto: create-drop
     defer-datasource-initialization: true
@@ -17,5 +14,18 @@ spring:
         # Not recommended as this will simply logs everything onto console (Standard output) without
         # any optimizations of a logging framework. See: https://www.baeldung.com/sql-logging-spring-boot
         format_sql: true
+    # Not recommended as this will simply logs everything onto console (Standard output) without
+    # any optimizations of a logging framework. See: https://www.baeldung.com/sql-logging-spring-boot
+    show-sql: true
   h2:
     console.enabled: true
+logging:
+  level:
+    # Ref: https://www.baeldung.com/sql-logging-spring-boot
+    # Log SQL queries
+    org.hibernate.SQL: DEBUG
+    # Log query binding parameters...
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    venkat.springboot.simple.jpademo: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p %c{1}:%L - %m%n"
