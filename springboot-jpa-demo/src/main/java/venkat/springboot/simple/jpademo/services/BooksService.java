@@ -9,7 +9,7 @@ public interface BooksService {
 
     List<Book> getAllBooks();
     
-    List<Book> getByCategory(BookCategory cat);
+    List<Book> searchByCategory(BookCategory cat);
 
     Book getById(Long id);
 
@@ -19,6 +19,6 @@ public interface BooksService {
     
 //    Book updateBook(Long id, Book updateBookDetails);
 
-    Boolean removeBook(Long bookId);
+    void removeBook(Long bookId);
 
 }

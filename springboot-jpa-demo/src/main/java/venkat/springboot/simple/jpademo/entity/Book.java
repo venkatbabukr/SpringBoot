@@ -5,12 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
 
 import venkat.springboot.simple.jpademo.constants.BookCategory;
 
@@ -19,15 +16,18 @@ import venkat.springboot.simple.jpademo.constants.BookCategory;
 public class Book {
 
     @Id
+    @GeneratedValue(generator = "sg1")
+    @SequenceGenerator(name = "sg1", sequenceName = "booksSequence", initialValue = 4, allocationSize = 1)
+
     // @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @GeneratedValue(generator = "sequence-generator")
-    @GenericGenerator(
-        name = "sg1",
-        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-        parameters = {
-            @Parameter(name = "sequence_name", value = "book_sequence"),
-            @Parameter(name = "initial_value", value = "4"),
-            @Parameter(name = "increment_size", value = "1") })
+
+//    @GenericGenerator(
+//        name = "sg1",
+//        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+//        parameters = {
+//            @Parameter(name = "sequence_name", value = "book_sequence"),
+//            @Parameter(name = "initial_value", value = "4"),
+//            @Parameter(name = "increment_size", value = "1") })
     private Long id;
 
     @Column(name = "TITLE")
@@ -42,6 +42,8 @@ public class Book {
     @Column(name = "CATEGORY")
     @Enumerated(EnumType.STRING)
     private BookCategory category;
+
+    public Book() { }
 
     public Book(String title, String author, String isbn, BookCategory cat) {
         this.title = title;

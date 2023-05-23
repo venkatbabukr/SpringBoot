@@ -1,4 +1,4 @@
-package venkat.springboot.simple.jpademo.repository;
+package venkat.springboot.simple.jpademo.repos;
 
 import java.util.List;
 import java.util.Optional;

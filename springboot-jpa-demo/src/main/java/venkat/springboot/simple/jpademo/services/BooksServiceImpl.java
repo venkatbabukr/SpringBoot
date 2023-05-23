@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import venkat.springboot.simple.jpademo.constants.BookCategory;
 import venkat.springboot.simple.jpademo.entity.Book;
-import venkat.springboot.simple.jpademo.repository.BooksRepository;
+import venkat.springboot.simple.jpademo.repos.BooksRepository;
 
 @Service
 public class BooksServiceImpl implements BooksService {
@@ -19,43 +19,39 @@ public class BooksServiceImpl implements BooksService {
 
     @PostConstruct
     private void initBooksData() {
-        System.out.println("Ïnside books service post construct");
+        booksRepo.save(new Book("Book 1 from service", "Author 4", "ISBN4", BookCategory.ECONOMICS));
+        booksRepo.save(new Book("Book 2 from service", "Author 5", "ISBN5", BookCategory.POLITICS));
     }
 
     @Override
     public List<Book> getAllBooks() {
-        // TODO Auto-generated method stub
-        return null;
+        return booksRepo.findAll();
     }
 
     @Override
-    public List<Book> getByCategory(BookCategory cat) {
-        // TODO Auto-generated method stub
-        return null;
+    public List<Book> searchByCategory(BookCategory cat) {
+        return booksRepo.findByCategory(cat).orElseThrow(() -> new RuntimeException());
     }
 
     @Override
     public Book getById(Long id) {
-        // TODO Auto-generated method stub
-        return null;
+        return booksRepo.findById(id).orElseThrow(() -> new RuntimeException());
     }
 
     @Override
     public Book searchByIsbn(String isbn) {
-        // TODO Auto-generated method stub
-        return null;
+        return booksRepo.findByISBN(isbn).orElseThrow(() -> new RuntimeException());
     }
 
     @Override
     public Book saveNewBook(Book newBook) {
-        // TODO Auto-generated method stub
-        return null;
+        newBook.setId(null);
+        return booksRepo.save(newBook);
     }
 
     @Override
-    public Boolean removeBook(Long bookId) {
-        // TODO Auto-generated method stub
-        return null;
+    public void removeBook(Long bookId) {
+        booksRepo.deleteById(bookId);
     }
 
 }
