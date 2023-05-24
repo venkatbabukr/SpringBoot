@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/hello")
+@RequestMapping(path = "/svc1")
 public class HelloEndpoint {
 
     @Value("${spring.application.name}")
     private String applicationName;
 
-    @RequestMapping(path = "/msg", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
+    @RequestMapping(path = "/hello", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
     public String sayHello() {
         return String.format("%s says hello!", applicationName);
     }
