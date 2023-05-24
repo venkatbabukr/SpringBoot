@@ -8,6 +8,11 @@ spring:
           uri: http://localhost:8081
           predicates:
             - Path=/svc1/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: svc1CircuitBreaker
+                fallbackUri: forward:/gateway/fallback
         - id: springcloud-demo-service2
           uri: http://localhost:8082
           predicates:
