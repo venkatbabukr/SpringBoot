@@ -1,5 +1,6 @@
-package venkat.springcloud.simple.endpoints;
+package venkat.springcloud.simple.micsvc.endpoints;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,9 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "/hello")
 public class HelloEndpoint {
 
+    @Value("${spring.application.name}")
+    private String applicationName;
+
     @RequestMapping(path = "/msg", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
     public String sayHello() {
-        return "Demo Service1 says hello!";
+        return String.format("%s says hello!", applicationName);
     }
 
 }

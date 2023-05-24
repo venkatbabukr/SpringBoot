@@ -1,3 +1,5 @@
 rootProject.name = 'springcloud-microservices-demo'
 
+include 'springcloud-demo-eureka'
 include 'springcloud-demo-service1'
+include 'springcloud-demo-service2'
