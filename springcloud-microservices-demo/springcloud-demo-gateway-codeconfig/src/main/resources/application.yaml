@@ -1,0 +1,4 @@
+spring:
+  application.name: springcloud-demo-gateway-codeconfig
+server:
+  port: 8000
