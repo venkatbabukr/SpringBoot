@@ -1,3 +1,4 @@
 rootProject.name = 'springcloud-config-demo'
 
 include 'springcloud-config-server'
+include 'springcloud-config-client'
