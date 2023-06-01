@@ -1,0 +1,3 @@
+rootProject.name = 'springboot-camunda-demo'
+
+include 'camunda-dmn-demo'

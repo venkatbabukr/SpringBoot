@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="breakfastDecision" name="Dinner Decision" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.11.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+  <decision id="dish" name="Dish">
+    <decisionTable id="DecisionTable_0ufe3wa">
+      <input id="InputClause_06fb6ki" label="Season">
+        <inputExpression id="LiteralExpression_137zbyl" typeRef="string">
+          <text>season</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0rzwcdu" label="Number of Guests">
+        <inputExpression id="LiteralExpression_0vy4g8p" typeRef="integer">
+          <text>numGuests</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1hpekvh" label="Morning breakfast" name="desiredBreakfast" typeRef="string" />
+      <rule id="DecisionRule_1t7sttm">
+        <inputEntry id="UnaryTests_05xfb2o">
+          <text>"Fall"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hob8go">
+          <text>&lt;= 4</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0pdb73q">
+          <text>"Potato bajji"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03ewt2j">
+        <inputEntry id="UnaryTests_1dxe8wy">
+          <text>"Winter"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uzcfko">
+          <text>&lt;= 8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15r29th">
+          <text>"Poha"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ai0rka">
+        <inputEntry id="UnaryTests_07l5gwh">
+          <text>"Spring"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0znwvqp">
+          <text>&lt;= 4</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07b3vuh">
+          <text>"Mango"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1co2e2t">
+        <inputEntry id="UnaryTests_18hjhhu">
+          <text>"Spring"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qosn6f">
+          <text>[5..8]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13tzuc2">
+          <text>"Mango rice"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1stftp7">
+        <inputEntry id="UnaryTests_1mijrc9">
+          <text>"Fall", "Winter", "Spring"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pz9t23">
+          <text>&gt;8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14xshiu">
+          <text>"Combo breakfast"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_068ogiw">
+        <inputEntry id="UnaryTests_0lk8ryo">
+          <text>"Summer"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ptqp69">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0c9yy3g">
+          <text>"Salad always"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_19noozz" dmnElementRef="dish">
+        <dc:Bounds height="80" width="180" x="160" y="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
