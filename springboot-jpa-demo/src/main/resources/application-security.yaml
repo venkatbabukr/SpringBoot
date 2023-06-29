@@ -1,0 +1,14 @@
+# See JPADemoApplication class on how this profile is getting loaded programatically.
+#        SpringApplication application = new SpringApplication(JpaDemoApplication.class);
+#        application.setAdditionalProfiles(SecurityConstants.SECURITY_PROFILE_NAME);
+#        application.run(args);
+spring:
+  # Donot exclude complete security autoconfiguration... See https://www.baeldung.com/spring-boot-security-autoconfiguration
+  # autoconfigure.exclude: org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration
+  security:
+    user:
+      #name: user
+      password: venkat
+app.security:
+  enabled: true
+  config: AppBasicSecurityConfig
