@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: springcloud-demo-gateway-autodiscovery
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          #lower-case-service-id: true
+server:
+  port: 8080
+eureka:
+  instance:
+    hostname: localhost
+management:
+  endpoint:
+    gateway.enabled: true
+  endpoints:
+    web.exposure.include: gateway

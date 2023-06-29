@@ -3,9 +3,11 @@ spring:
     name: springcloud-demo-gateway
   cloud:
     gateway:
+      default-filters:
+        - StripPrefix=1
       routes:
         - id: springcloud-demo-service1
-          uri: http://localhost:8081
+          uri: lb://SPRINGCLOUD-DEMO-SERVICE1
           predicates:
             - Path=/svc1/**
           filters:
@@ -14,11 +16,16 @@ spring:
                 name: svc1CircuitBreaker
                 fallbackUri: forward:/gateway/fallback
         - id: springcloud-demo-service2
-          uri: http://localhost:8082
+          uri: lb://SPRINGCLOUD-DEMO-SERVICE2
           predicates:
             - Path=/svc2/**
 server:
   port: 8080
-  eureka:
-    instance:
-      hostname: localhost
+eureka:
+  instance:
+    hostname: localhost
+management:
+  endpoint:
+    gateway.enabled: true
+  endpoints:
+    web.exposure.include: gateway

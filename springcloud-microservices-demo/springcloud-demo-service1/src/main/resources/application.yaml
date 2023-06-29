@@ -2,6 +2,12 @@ spring:
   application.name: springcloud-demo-service1
 server:
   port: 8081
-  eureka:
-    instance:
-      hostname: localhost
+management:
+  info:
+    java.enabled: true
+    env.enabled: true
+  endpoints.web:
+    exposure.include: health,info
+eureka:
+  instance:
+    hostname: localhost
