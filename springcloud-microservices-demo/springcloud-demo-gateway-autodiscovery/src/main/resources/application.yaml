@@ -7,6 +7,8 @@ spring:
         locator:
           enabled: true
           #lower-case-service-id: true
+      # After hitting the gateway a few times, see metrics in URL: http://{host}/metrics and Sub URLs...
+      metrics.enabled: true
 server:
   port: 8080
 eureka:
@@ -14,6 +16,9 @@ eureka:
     hostname: localhost
 management:
   endpoint:
+    # This is the property required to enable gateway.
     gateway.enabled: true
+    health:
+      show-details: always
   endpoints:
-    web.exposure.include: gateway
+    web.exposure.include: info,health,gateway

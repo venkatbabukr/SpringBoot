@@ -19,22 +19,27 @@ spring:
           uri: lb://SPRINGCLOUD-DEMO-SERVICE2
           predicates:
             - Path=/svc2/**
+      # After hitting the gateway a few times, see metrics in URL: http://{host}/metrics and Sub URLs...
+      metrics.enabled: true
 server:
   port: 8080
 eureka:
   instance:
     hostname: localhost
 management:
-  # This is the property required to enable gateway.
-  endpoint:
-    gateway.enabled: true
-
   info:
     java.enabled: true
     env.enabled: true
+  health:
+    circuitbreakers.enabled: true
+  endpoint:
+    # This is the property required to enable gateway.
+    gateway.enabled: true
+    health:
+      show-details: always
   # Expose gateway web endpoint to get list of all
   # routes...
   # URLs to access: http://{host}/actuator/gateway/routes
   # Check more docs here: https://cloud.spring.io/spring-cloud-gateway/multi/multi__actuator_api.html
   endpoints.web:
-    exposure.include: info,health,gateway
+    exposure.include: gateway,health,info,metrics

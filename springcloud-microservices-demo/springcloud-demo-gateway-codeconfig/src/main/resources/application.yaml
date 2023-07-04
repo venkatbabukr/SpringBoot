@@ -1,4 +1,8 @@
 spring:
   application.name: springcloud-demo-gateway-codeconfig
+  cloud:
+    gateway:
+      # After hitting the gateway a few times, see metrics in URL: http://{host}/metrics and Sub URLs...
+      metrics.enabled: true
 server:
   port: 8000
