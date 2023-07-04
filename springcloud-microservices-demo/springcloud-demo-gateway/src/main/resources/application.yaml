@@ -25,7 +25,16 @@ eureka:
   instance:
     hostname: localhost
 management:
+  # This is the property required to enable gateway.
   endpoint:
     gateway.enabled: true
-  endpoints:
-    web.exposure.include: gateway
+
+  info:
+    java.enabled: true
+    env.enabled: true
+  # Expose gateway web endpoint to get list of all
+  # routes...
+  # URLs to access: http://{host}/actuator/gateway/routes
+  # Check more docs here: https://cloud.spring.io/spring-cloud-gateway/multi/multi__actuator_api.html
+  endpoints.web:
+    exposure.include: info,health,gateway

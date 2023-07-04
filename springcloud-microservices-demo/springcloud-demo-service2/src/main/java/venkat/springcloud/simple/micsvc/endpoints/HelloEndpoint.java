@@ -12,9 +12,12 @@ public class HelloEndpoint {
     @Value("${spring.application.name}")
     private String applicationName;
 
+    @Value("${server.port}")
+    private Integer serverPort;
+
     @RequestMapping(path = "/hello", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
     public String sayHello() {
-        return String.format("%s says hello!", applicationName);
+        return String.format("%s from port %s says hello!", applicationName, serverPort);
     }
 
 }

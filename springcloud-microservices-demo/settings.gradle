@@ -2,7 +2,7 @@ rootProject.name = 'springcloud-microservices-demo'
 
 include 'springcloud-demo-eureka'
 include 'springcloud-demo-gateway'
-include 'springcloud-demo-gateway-autodiscovery'
+//include 'springcloud-demo-gateway-autodiscovery'
 include 'springcloud-demo-gateway-codeconfig'
 include 'springcloud-demo-service1'
 include 'springcloud-demo-service2'

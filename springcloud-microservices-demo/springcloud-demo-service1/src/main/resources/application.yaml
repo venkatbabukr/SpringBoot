@@ -7,7 +7,35 @@ management:
     java.enabled: true
     env.enabled: true
   endpoints.web:
-    exposure.include: health,info
+    # URL to access: http://{host}/actuator
+    exposure.include: "*"
 eureka:
   instance:
     hostname: localhost
+# For more on feign, refer these URLs:
+# https://cloud.spring.io/spring-cloud-openfeign/reference/html/
+# https://arnoldgalovics.com/feign-fallback/
+feign:
+  circuitbreaker.enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        # To get logs, we need to set this property as well as SLF4J logging levels
+        # for packages containing the feign clients.
+        loggerLevel: full
+        decode404: true
+        #errorDecoder: com.example.SimpleErrorDecoder
+        #retryer: com.example.SimpleRetryer
+        #requestInterceptors:
+        #  - com.example.FooRequestInterceptor
+        #  - com.example.BarRequestInterceptor
+        #encoder: com.example.SimpleEncoder
+        #decoder: com.example.SimpleDecoder
+        #contract: com.example.SimpleContract
+  compression:
+    request.enabled: true
+    response.enabled: true
+logging.level:
+  venkat.springcloud.simple.feign.client: DEBUG
