@@ -12,3 +12,6 @@ spring:
 app.security:
   enabled: true
   config: AppBasicSecurityConfig
+logging:
+  level:
+    org.springframework.security.web: DEBUG
