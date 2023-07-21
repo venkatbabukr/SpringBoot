@@ -9,15 +9,21 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.envers.Audited;
+
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import venkat.springboot.simple.jpademo.constants.BookCategory;
+import venkat.springboot.simple.jpademo.entity.audit.AuditedModifiableEntity;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "BOOK")
+@Audited
 @NoArgsConstructor
-public class Book {
+public class Book extends AuditedModifiableEntity {
 
     @Id
     @GeneratedValue(generator = "sg1")

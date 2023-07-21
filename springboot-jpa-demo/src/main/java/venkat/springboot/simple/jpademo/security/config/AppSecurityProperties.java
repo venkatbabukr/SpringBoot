@@ -10,4 +10,6 @@ public class AppSecurityProperties {
 
 	private boolean enabled;
 
+	private String[] permitUrls;
+
 }

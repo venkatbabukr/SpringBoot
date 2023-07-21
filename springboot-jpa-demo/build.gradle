@@ -23,6 +23,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-security'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    implementation 'org.hibernate:hibernate-envers:5.6.15.Final'
+
     runtimeOnly 'com.h2database:h2'
 
     // Lombok

@@ -15,8 +15,12 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Configuration
 @ConditionalOnProperty(name = "app.security.config", havingValue = "AppBasicSecurityConfig")
+// @ConditionalOnExpression("${app.security.enabled:false} and '${app.security.config}'.equals('AppBasicSecurityConfig')")
 @EnableWebSecurity
 public class AppBasicSecurityConfig {
 
@@ -35,29 +39,45 @@ public class AppBasicSecurityConfig {
 	            .password(passwordEncoder.encode("password"))
 	            .roles("USER")
 	            .build();
+	    log.debug("Adding UserDetails user/password=user/password");
 
 	    UserDetails admin = User.withUsername("admin")
 	            .password(passwordEncoder.encode("admin"))
 	            .roles("USER", "ADMIN")
 	            .build();
+	    log.debug("Adding UserDetails user/password=admin/admin");
 
 	    return new InMemoryUserDetailsManager(user, admin);
 	}
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-    	System.out.println("Venkat app sec enabled? " + securityProperties.isEnabled());
-    	http.csrf()
-    		.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+    	log.debug("Sec enabled? {} ", securityProperties.isEnabled());
+    	
+    	// Required to get h2-console working... as h2-console works using frames...
+    	http.headers().frameOptions().sameOrigin();
 
-    	http.sessionManagement()
-    	        .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+    	if (securityProperties.isEnabled()) {
+	    	http.csrf()
+	    		.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+	
+	    	http.sessionManagement()
+	    	        .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-    	http.authorizeRequests()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .httpBasic();
+	    	String[] permitUrls = securityProperties.getPermitUrls();
+	    	if (permitUrls != null && permitUrls.length > 0) {
+	    		http.csrf().ignoringAntMatchers(permitUrls);
+	    		http.authorizeRequests().antMatchers(permitUrls).permitAll();
+	    	}
+	    	http.authorizeRequests()
+	                .anyRequest()
+	                .authenticated()
+	                .and()
+	                .httpBasic();
+    	} else {
+    		http.csrf().disable();
+    		http.authorizeRequests().anyRequest().permitAll();
+    	}
         return http.build();
     }
 	

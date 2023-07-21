@@ -10,8 +10,14 @@ spring:
       #name: user
       password: venkat
 app.security:
-  enabled: true
   config: AppBasicSecurityConfig
+  enabled: true
+  permit-urls: /h2-console/**,/v3/api-docs/**,/swagger-ui/**,/swagger-ui.html
+
+# For swagger to work...
+springdoc.swagger-ui:
+  csrf:
+    enabled: true
 logging:
   level:
     org.springframework.security.web: DEBUG
