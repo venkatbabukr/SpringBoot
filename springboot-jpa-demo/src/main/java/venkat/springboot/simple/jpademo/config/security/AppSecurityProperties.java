@@ -1,4 +1,4 @@
-package venkat.springboot.simple.jpademo.security.config;
+package venkat.springboot.simple.jpademo.config.security;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

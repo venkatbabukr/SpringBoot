@@ -1,9 +1,10 @@
-package venkat.springboot.simple.jpademo.endpoints;
+package venkat.springboot.simple.jpademo.book.endpoints;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort.Direction;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
+import venkat.springboot.simple.jpademo.book.dto.BookData;
+import venkat.springboot.simple.jpademo.book.entity.Book;
+import venkat.springboot.simple.jpademo.book.services.BooksService;
+import venkat.springboot.simple.jpademo.common.validation.ValidationGroups.CreateResource;
 import venkat.springboot.simple.jpademo.constants.BookCategory;
-import venkat.springboot.simple.jpademo.entity.Book;
-import venkat.springboot.simple.jpademo.services.BooksService;
 
 @Slf4j
 @RestController
@@ -24,13 +27,13 @@ public class BooksEndpoint {
     private BooksService booksSvc;
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<Book> getAll() {
+    public List<BookData> getAll() {
         log.debug("Entering getAll");
         return booksSvc.getAllBooks();
     }
 
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
-    public Book getById(@PathVariable Long id) {
+    public BookData getById(@PathVariable Long id) {
         log.debug("Entering getById(id={})", id);
         return booksSvc.getById(id);
     }
@@ -60,9 +63,9 @@ public class BooksEndpoint {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public Book saveNewBook(Book newBook) {
-        log.debug("Entering saveNewBook(newBook={})", newBook);
-        return booksSvc.saveNewBook(newBook);
+    public BookData saveNewBook(@Validated(CreateResource.class) BookData newBookData) {
+        log.debug("Entering saveNewBook(newBookData={})", newBookData);
+        return booksSvc.saveNewBook(newBookData);
     }
 
     @RequestMapping(method = RequestMethod.DELETE)

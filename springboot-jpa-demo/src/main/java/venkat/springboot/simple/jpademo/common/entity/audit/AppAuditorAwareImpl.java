@@ -1,4 +1,4 @@
-package venkat.springboot.simple.jpademo.entity.audit;
+package venkat.springboot.simple.jpademo.common.entity.audit;
 
 import java.util.Optional;
 

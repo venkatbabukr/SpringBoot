@@ -1,4 +1,4 @@
-package venkat.springboot.simple.jpademo.entity.audit;
+package venkat.springboot.simple.jpademo.common.entity.base;
 
 import java.time.LocalDateTime;
 

@@ -1,4 +1,4 @@
-package venkat.springboot.simple.jpademo.exceptions;
+package venkat.springboot.simple.jpademo.common.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;

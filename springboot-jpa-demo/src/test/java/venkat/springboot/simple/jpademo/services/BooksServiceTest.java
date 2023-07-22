@@ -18,9 +18,12 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import venkat.springboot.simple.jpademo.book.dto.BookData;
+import venkat.springboot.simple.jpademo.book.entity.Book;
+import venkat.springboot.simple.jpademo.book.repos.BooksRepository;
+import venkat.springboot.simple.jpademo.book.services.BooksService;
+import venkat.springboot.simple.jpademo.book.services.BooksServiceImpl;
 import venkat.springboot.simple.jpademo.constants.BookCategory;
-import venkat.springboot.simple.jpademo.entity.Book;
-import venkat.springboot.simple.jpademo.repos.BooksRepository;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
@@ -36,12 +39,12 @@ public class BooksServiceTest {
 	@Test
 	public void testGetAllBooks() {
 		List<Book> mockAllBooks = Arrays.asList(
-            new Book("Book 1 from service", "Author 4", "ISBN4", BookCategory.ECONOMICS, 199.99),
-            new Book("Book 2 from service", "Author 5", "ISBN5", BookCategory.POLITICS, 299.99));
+            new Book("Book 1 from service", "Author 4", "ISBN4", BookCategory.ECONOMICS, "199.99"),
+            new Book("Book 2 from service", "Author 5", "ISBN5", BookCategory.POLITICS, "299.99"));
 
 		when(mockBooksRepo.findAll()).thenReturn(mockAllBooks);
 		
-		List<Book> allBooks = testBooksSvc.getAllBooks();
+		List<BookData> allBooks = testBooksSvc.getAllBooks();
 		List<Book> expectedAllBooks = new ArrayList<>(mockAllBooks);
 		assertEquals(expectedAllBooks, allBooks, "All books list mismatching!");
 	}
@@ -53,7 +56,7 @@ public class BooksServiceTest {
 		assertThrows(RuntimeException.class, () -> testBooksSvc.searchByCategory(BookCategory.ECONOMICS));
 
 		List<Book> mockEconomicBooks = Arrays.asList(
-	            new Book("Book 1 from service", "Author 4", "ISBN4", BookCategory.ECONOMICS, 499.99));
+	            new Book("Book 1 from service", "Author 4", "ISBN4", BookCategory.ECONOMICS, "499.99"));
 
 		when(mockBooksRepo.findByCategory(any())).thenReturn(
             Optional.of(mockEconomicBooks));

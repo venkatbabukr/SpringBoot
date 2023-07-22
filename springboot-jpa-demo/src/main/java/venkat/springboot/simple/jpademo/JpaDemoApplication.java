@@ -8,8 +8,8 @@ import org.springframework.data.domain.AuditorAware;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import venkat.springboot.simple.jpademo.common.entity.audit.AppAuditorAwareImpl;
 import venkat.springboot.simple.jpademo.constants.ApplicationConstants.SecurityConstants;
-import venkat.springboot.simple.jpademo.entity.audit.AppAuditorAwareImpl;
 
 @SpringBootApplication
 @ConfigurationPropertiesScan

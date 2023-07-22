@@ -1,4 +1,6 @@
-package venkat.springboot.simple.jpademo.entity;
+package venkat.springboot.simple.jpademo.book.entity;
+
+import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,8 +16,8 @@ import org.hibernate.envers.Audited;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import venkat.springboot.simple.jpademo.common.entity.base.AuditedModifiableEntity;
 import venkat.springboot.simple.jpademo.constants.BookCategory;
-import venkat.springboot.simple.jpademo.entity.audit.AuditedModifiableEntity;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -53,10 +55,16 @@ public class Book extends AuditedModifiableEntity {
     @Enumerated(EnumType.STRING)
     private BookCategory category;
 
+    // See links like these for choosing BigDecimal type!
+    // https://www.linkedin.com/pulse/why-we-should-use-bigdecimal-instead-double-java-financial-ismail/
     @Column(name = "PRICE")
-    private Double price;
+    private BigDecimal price;
 
-    public Book(String title, String author, String isbn, BookCategory cat, Double price) {
+    public Book(String title, String author, String isbn, BookCategory cat, String price) {
+    	this(title, author, isbn, cat, new BigDecimal(price));
+    }
+
+    public Book(String title, String author, String isbn, BookCategory cat, BigDecimal price) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;

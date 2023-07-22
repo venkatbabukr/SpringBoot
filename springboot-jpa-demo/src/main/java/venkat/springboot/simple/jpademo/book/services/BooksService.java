@@ -1,17 +1,18 @@
-package venkat.springboot.simple.jpademo.services;
+package venkat.springboot.simple.jpademo.book.services;
 
 import java.util.List;
 
 import org.springframework.data.domain.Sort.Direction;
 
+import venkat.springboot.simple.jpademo.book.dto.BookData;
+import venkat.springboot.simple.jpademo.book.entity.Book;
 import venkat.springboot.simple.jpademo.constants.BookCategory;
-import venkat.springboot.simple.jpademo.entity.Book;
 
 public interface BooksService {
 
-    List<Book> getAllBooks();
+    List<BookData> getAllBooks();
 
-    Book getById(Long id);
+    BookData getById(Long id);
 
     Book getByIsbn(String isbn);
 
@@ -21,7 +22,7 @@ public interface BooksService {
 
     List<Book> searchByPriceRange(Double startPrice);
 
-    Book saveNewBook(Book newBook);
+    BookData saveNewBook(BookData newBook);
     
 //    Book updateBook(Long id, Book updateBookDetails);
 

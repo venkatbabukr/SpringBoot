@@ -1,5 +1,16 @@
 server:
   port: 8080
+
+  # SpringBoot's ErrorController settings for handling exceptions...
+  # See following for more details:
+  #   1. https://reflectoring.io/spring-boot-exception-handling/
+  #   2. https://www.baeldung.com/exception-handling-for-rest-with-spring#spring-boot for details...
+  error:
+    whitelabel.enabled: false
+    #include-message: always
+    include-binding-errors: always
+    include-stacktrace: on_param # Add ?trace=true param while calling rest endpoints...
+    include-exception: false
 spring:
   datasource:
     url: jdbc:h2:mem:testdb

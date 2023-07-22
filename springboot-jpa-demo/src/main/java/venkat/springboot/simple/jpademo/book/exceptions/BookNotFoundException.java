@@ -1,8 +1,10 @@
-package venkat.springboot.simple.jpademo.exceptions;
+package venkat.springboot.simple.jpademo.book.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.server.ResponseStatusException;
+
+import venkat.springboot.simple.jpademo.common.exceptions.NotFoundResponseStatusException;
 
 /**
  * Sample exception having {@link ResponseStatus}. This is not scalable as we can't dynamically supply reason for book not found.

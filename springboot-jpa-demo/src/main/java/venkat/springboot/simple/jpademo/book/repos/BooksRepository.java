@@ -1,4 +1,4 @@
-package venkat.springboot.simple.jpademo.repos;
+package venkat.springboot.simple.jpademo.book.repos;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,8 +7,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import venkat.springboot.simple.jpademo.book.entity.Book;
 import venkat.springboot.simple.jpademo.constants.BookCategory;
-import venkat.springboot.simple.jpademo.entity.Book;
 
 @Repository
 public interface BooksRepository extends JpaRepository<Book, Long> {
