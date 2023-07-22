@@ -53,11 +53,15 @@ public class Book extends AuditedModifiableEntity {
     @Enumerated(EnumType.STRING)
     private BookCategory category;
 
-    public Book(String title, String author, String isbn, BookCategory cat) {
+    @Column(name = "PRICE")
+    private Double price;
+
+    public Book(String title, String author, String isbn, BookCategory cat, Double price) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
         this.category = cat;
+        this.price = price;
     }
 
 }

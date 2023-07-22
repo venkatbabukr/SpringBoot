@@ -36,8 +36,8 @@ public class BooksServiceTest {
 	@Test
 	public void testGetAllBooks() {
 		List<Book> mockAllBooks = Arrays.asList(
-            new Book("Book 1 from service", "Author 4", "ISBN4", BookCategory.ECONOMICS),
-            new Book("Book 2 from service", "Author 5", "ISBN5", BookCategory.POLITICS));
+            new Book("Book 1 from service", "Author 4", "ISBN4", BookCategory.ECONOMICS, 199.99),
+            new Book("Book 2 from service", "Author 5", "ISBN5", BookCategory.POLITICS, 299.99));
 
 		when(mockBooksRepo.findAll()).thenReturn(mockAllBooks);
 		
@@ -53,7 +53,7 @@ public class BooksServiceTest {
 		assertThrows(RuntimeException.class, () -> testBooksSvc.searchByCategory(BookCategory.ECONOMICS));
 
 		List<Book> mockEconomicBooks = Arrays.asList(
-	            new Book("Book 1 from service", "Author 4", "ISBN4", BookCategory.ECONOMICS));
+	            new Book("Book 1 from service", "Author 4", "ISBN4", BookCategory.ECONOMICS, 499.99));
 
 		when(mockBooksRepo.findByCategory(any())).thenReturn(
             Optional.of(mockEconomicBooks));

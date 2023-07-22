@@ -3,9 +3,8 @@ package venkat.springboot.simple.jpademo.repos;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import venkat.springboot.simple.jpademo.constants.BookCategory;
@@ -14,10 +13,15 @@ import venkat.springboot.simple.jpademo.entity.Book;
 @Repository
 public interface BooksRepository extends JpaRepository<Book, Long> {
 
-    @Query("select b from Book b where b.isbn = :isbn")
-    Optional<Book> findByISBN(@Param("isbn") String isbn);
-    
-    @Query("select b from Book b where b.category = :cat")
-    Optional<List<Book>> findByCategory(@Param("cat") BookCategory cat);
+	// Derived queries
+    Optional<Book> queryByIsbn(String isbn);
+
+    List<Book> findByTitleContaining(String titleSearchStr, Sort sort);
+
+	Optional<List<Book>> findByCategory(BookCategory cat);
+
+    // findBy, findAllBy are one and the same. Having this method name here just for reference
+    // that we can use findAll as well...
+    List<Book> findAllByPriceGreaterThan(Double price);
 
 }
