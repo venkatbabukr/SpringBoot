@@ -5,16 +5,22 @@ import java.math.BigDecimal;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import venkat.springboot.simple.jpademo.common.validation.ValidationGroups.EditResource;
+import venkat.springboot.simple.jpademo.common.validation.ValidationGroups.OnCreate;
+import venkat.springboot.simple.jpademo.common.validation.ValidationGroups.OnEdit;
 import venkat.springboot.simple.jpademo.constants.BookCategory;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class BookData {
-	@NotNull(groups = EditResource.class, message = "ID required during edit operations")
+	
+	@Null(groups = OnCreate.class, message = "id should be null during create operation")
+	@NotNull(groups = OnEdit.class, message = "ID required during edit operations")
     private Long id;
     
     @NotBlank(message = "Book Title can't be blank")
@@ -25,6 +31,8 @@ public class BookData {
     private String isbn;
     @NotNull(message = "Book category required")
     private BookCategory category;
+    @NotNull
     @DecimalMin(value = "0.99", message = "Price should be greater than or equal to 0.99")
     private BigDecimal price;
+
 }

@@ -2,10 +2,13 @@ package venkat.springboot.simple.jpademo.book.endpoints;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 import venkat.springboot.simple.jpademo.book.dto.BookData;
 import venkat.springboot.simple.jpademo.book.entity.Book;
 import venkat.springboot.simple.jpademo.book.services.BooksService;
-import venkat.springboot.simple.jpademo.common.validation.ValidationGroups.CreateResource;
+import venkat.springboot.simple.jpademo.common.validation.ValidationGroups.OnCreate;
 import venkat.springboot.simple.jpademo.constants.BookCategory;
 
 @Slf4j
@@ -63,7 +66,7 @@ public class BooksEndpoint {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public BookData saveNewBook(@Validated(CreateResource.class) BookData newBookData) {
+    public BookData saveNewBook(@RequestBody @Validated(OnCreate.class) BookData newBookData) {
         log.debug("Entering saveNewBook(newBookData={})", newBookData);
         return booksSvc.saveNewBook(newBookData);
     }
