@@ -11,6 +11,18 @@ server:
     include-binding-errors: always
     include-stacktrace: on_param # Add ?trace=true param while calling rest endpoints...
     include-exception: false
+management:
+  info:
+    # java.enabled: true
+    env.enabled: true
+  # health:
+    # db.enabled: true
+    # defaults.enabled: true
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web.exposure.include: "*"
 spring:
   datasource:
     url: jdbc:h2:mem:testdb
