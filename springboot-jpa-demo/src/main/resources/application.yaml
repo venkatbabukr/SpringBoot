@@ -49,6 +49,7 @@ logging:
     org.hibernate.SQL: DEBUG
     # Log query binding parameters...
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    venkat.common: DEBUG
     venkat.springboot.simple.jpademo: DEBUG
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p %c{1}:%L - %m%n"

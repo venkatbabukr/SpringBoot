@@ -22,10 +22,13 @@ configurations {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+
     // Comes for free with spring-boot-starter-web
     // implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     implementation 'org.hibernate:hibernate-envers:5.6.15.Final'
 
@@ -42,6 +45,8 @@ dependencies {
     // Springdoc OpenAPI UI integration
     // Swagger UI will be accessible at http://server:port/context-path/swagger-ui.html
     implementation 'org.springdoc:springdoc-openapi-ui:1.7.0'
+
+    implementation project(':common')
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

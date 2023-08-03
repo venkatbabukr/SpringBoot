@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -13,8 +14,10 @@ import venkat.springboot.simple.jpademo.constants.ApplicationConstants.SecurityC
 
 @SpringBootApplication
 @ConfigurationPropertiesScan
+@ComponentScan(basePackages = {"venkat.common", "venkat.springboot.simple.jpademo"})
 @EnableJpaAuditing(auditorAwareRef = "auditorAware", modifyOnCreate = false)
 @EnableJpaRepositories
+// @EnableAspectJAutoProxy
 public class JpaDemoApplication {
 
 	public static void main(String[] args) {

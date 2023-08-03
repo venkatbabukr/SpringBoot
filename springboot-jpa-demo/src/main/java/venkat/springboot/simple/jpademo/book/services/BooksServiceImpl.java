@@ -12,6 +12,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.domain.Sort.Order;
 import org.springframework.stereotype.Service;
 
+import venkat.common.logging.aop.LogExecutionTime;
 import venkat.springboot.simple.jpademo.book.dto.BookData;
 import venkat.springboot.simple.jpademo.book.entity.Book;
 import venkat.springboot.simple.jpademo.book.exceptions.BookNotFoundException;
@@ -35,6 +36,7 @@ public class BooksServiceImpl implements BooksService {
     }
 
     @Override
+    @LogExecutionTime
     public List<BookData> getAllBooks() {
         List<Book> allBooks = booksRepo.findAll(Sort.by(Order.desc("price"), Order.asc("title")));
         return mapper.map(allBooks, new TypeToken<List<BookData>>() {}.getType());

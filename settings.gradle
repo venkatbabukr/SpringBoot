@@ -1,0 +1,4 @@
+rootProject.name = 'SpringBoot'
+
+include 'common'
+include 'springboot-jpa-demo'
