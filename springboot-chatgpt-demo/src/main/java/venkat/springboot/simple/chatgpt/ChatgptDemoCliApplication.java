@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.ConfigurableApplicationContext;
 
 import venkat.springboot.simple.chatgpt.constants.CliApplicationConstants;
 
@@ -14,7 +15,8 @@ import venkat.springboot.simple.chatgpt.constants.CliApplicationConstants;
 public class ChatgptDemoCliApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ChatgptDemoCliApplication.class, args);
+		ConfigurableApplicationContext ctx = SpringApplication.run(ChatgptDemoCliApplication.class, args);
+		ctx.close();
 	}
 
 	public String getUserInputMessage() {
@@ -30,7 +32,6 @@ public class ChatgptDemoCliApplication implements CommandLineRunner {
 			System.out.println("Will send this to ChatGPT: " + userInput);
 			userInput = getUserInputMessage();
 		}
-		System.exit(1);
 	}
 
 }
