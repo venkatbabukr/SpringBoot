@@ -15,9 +15,12 @@ management:
   info:
     # java.enabled: true
     env.enabled: true
-  # health:
+  health:
     # db.enabled: true
     # defaults.enabled: true
+    rand.enabled: true
+    # Ref: https://docs.spring.io/spring-boot/docs/2.0.0.M6/reference/html/production-ready-endpoints.html#_writing_custom_healthindicators
+    status.order: DOWN, OUT_OF_SERVICE, WARN, UNKNOWN, UP
   endpoint:
     health:
       show-details: always
