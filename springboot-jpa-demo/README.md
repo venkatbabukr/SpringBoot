@@ -17,10 +17,22 @@ Given below is list of concepts covered in the project so far.
         <td>management:<br />&emsp;info:<br />&emsp;&emsp;# java.enabled: true<br />&emsp;&emsp;env.enabled: true</td>
     </tr>
     <tr>
-        <td>
-            Health checks endpoints <br />
+        <td rowspan="2">
+            Health <br />
+            <br />
+            <i>Parent endpoint</i> <br />
+            http://localhost:8080/actuator/health <br />
+            <br />
+            <i>Name endpoints</i> <br />
+            http://localhost:8080/actuator/health/ping <br />
+            http://localhost:8080/actuator/health/diskSpace <br />
+            http://localhost:8080/actuator/health/db <br />
+            http://localhost:8080/actuator/health/rand
         </td>
-        <td>management:<br />&emsp;health:<br />&emsp;&emsp;# db.enabled: true<br />&emsp;&emsp;defaults.enabled: true</td>
+        <td>management:<br />&emsp;health:<br />&emsp;&emsp;# db.enabled: true<br />&emsp;&emsp;# defaults.enabled: true<br />&emsp;&emsp;rand.enabled: true</td>
+    </tr>
+    <tr>
+        <td>management:<br />&emsp;endpoint:<br />&emsp;&emsp;health.show-details: always</td>
     </tr>
 </table>
 
