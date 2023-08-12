@@ -22,7 +22,10 @@ management:
     health:
       show-details: always
   endpoints:
-    web.exposure.include: "*"
+    web:
+      # base-path=/manage # This will change the context path or base path from /actuator to /manage.
+                          # See docs.spring.io/spring-boot/docs/current/actuator-api/htmlsingle/
+      exposure.include: "*"
 spring:
   datasource:
     url: jdbc:h2:mem:testdb
