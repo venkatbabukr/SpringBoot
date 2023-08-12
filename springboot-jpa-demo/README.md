@@ -34,8 +34,19 @@ Given below is list of concepts covered in the project so far.
     <tr>
         <td>management:<br />&emsp;endpoint:<br />&emsp;&emsp;health.show-details: always</td>
     </tr>
+    <tr>
+        <td>Endpoints</td>
+        <td>management:<br />&emsp;endpoints:<br />&emsp;&emsp;# web.base-path: /manage (Changes the context path from /actuator to /manage<br />&emsp;&emsp;web.exposure.include: * or gateway,health,info,metrics</td>
+    </tr>
 </table>
 
+## Endpoints
+1. Converter
+    * [DirectionEnumConverter](src/main/java/venkat/springboot/simple/jpademo/common/endpoints/converters/DirectionEnumConverter.java): For convertion of String to Direction Enum
+
+## Services
+1. @PostConstruct
+     * [Initialize database with data](src/main/java/venkat/springboot/simple/jpademo/book/services/BooksServiceImpl.java)
 
 ## JPA
 1. [Application yaml](src/main/resources/application.yaml)
@@ -70,6 +81,13 @@ Given below is list of concepts covered in the project so far.
     </tr>
 </table>
 
-2. [Sorting](src/main/java/venkat/springboot/simple/jpademo/book/services/BooksServiceImpl.java#searchByTitle): BooksServiceImpl.java#searchByTitle
+2. Audited entities
+     * [Creation audits](src/main/java/venkat/springboot/simple/jpademo/common/entity/base/AuditedEntity.java)
+     * [Modification audits](src/main/java/venkat/springboot/simple/jpademo/common/entity/base/AuditedModifiableEntity.java)
+     * [Get the username for audits](src/main/java/venkat/springboot/simple/jpademo/common/entity/audit/AppAuditorAwareImpl.java)
+3. [Sorting](src/main/java/venkat/springboot/simple/jpademo/book/services/BooksServiceImpl.java#searchByTitle): BooksServiceImpl.java#searchByTitle
      * [Direction](src/main/java/venkat/springboot/simple/jpademo/book/services/BooksServiceImpl.java#searchByTitle): BooksServiceImpl.java#searchByTitle
-3. [Derived queries](src/main/java/venkat/springboot/simple/jpademo/book/repos/BooksRepository.java)
+4. [Derived queries](src/main/java/venkat/springboot/simple/jpademo/book/repos/BooksRepository.java)
+
+## Aspect oriented programming
+1. [@LogExecutionTime](../common/src/main/java/venkat/common/logging/aop/LogExecutionTime.java)
