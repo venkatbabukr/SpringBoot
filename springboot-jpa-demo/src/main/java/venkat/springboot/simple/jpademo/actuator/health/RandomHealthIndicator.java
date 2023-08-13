@@ -7,6 +7,8 @@ import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
 import org.springframework.stereotype.Component;
 
+import venkat.springboot.simple.jpademo.actuator.health.Constants.CustomStatus;
+
 /*
  * 
  * Reference https://www.baeldung.com/spring-boot-health-indicators
@@ -22,7 +24,7 @@ public class RandomHealthIndicator implements HealthIndicator {
         
         double downChance = ThreadLocalRandom.current().nextDouble();
         if (downChance > 0.9) {
-        	status = Health.status(Constants.WARN)
+        	status = Health.status(CustomStatus.WARN)
         						.withException(new RuntimeException("Bad luck!"));
         }
 		return status

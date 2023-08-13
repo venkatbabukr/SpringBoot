@@ -74,8 +74,9 @@ public class BooksServiceImpl implements BooksService {
     @Override
     public BookData saveNewBook(BookData newBookData) {
     	// TODO: See how we should implement this overall...
+    	newBookData.setId(null);
         Book newBookEntity = mapper.map(newBookData, Book.class);
-        newBookEntity.setId(null);
+
         newBookEntity = booksRepo.save(newBookEntity);
         return mapper.map(newBookEntity, BookData.class);
     }
