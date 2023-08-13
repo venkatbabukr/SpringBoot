@@ -94,3 +94,4 @@ Given below is list of concepts covered in the project so far.
 
 ## TODO
 1. JPA @Subselect, @RestResource, @RepositoryRestResource etc…
+     * See links: https://medium.com/@jonathan.turnock/exposing-subset-view-of-the-database-with-a-jpa-repository-over-rest-5b9d6e07344b
