@@ -13,6 +13,7 @@ import org.springframework.data.domain.Sort.Order;
 import org.springframework.stereotype.Service;
 
 import venkat.common.logging.aop.LogExecutionTime;
+import venkat.springboot.simple.jpademo.author.entity.projections.BooksCountByAuthor;
 import venkat.springboot.simple.jpademo.book.dto.BookData;
 import venkat.springboot.simple.jpademo.book.entity.Book;
 import venkat.springboot.simple.jpademo.book.exceptions.BookNotFoundException;
@@ -66,15 +67,15 @@ public class BooksServiceImpl implements BooksService {
     }
 
 	@Override
-	public List<Book> searchByPriceRange(Double startPrice) {
+	public List<Book> searchByPriceRange(Double startPrice, Double endPrice) {
 		// TODO Auto-generated method stub
-		return booksRepo.findAllByPriceGreaterThan(startPrice);
+		return booksRepo.findAllByPriceBetween(startPrice, endPrice);
 	}
 
     @Override
     public BookData saveNewBook(BookData newBookData) {
-    	// TODO: See how we should implement this overall...
-    	newBookData.setId(null);
+    	// We don't need this as we have validation in place...
+        // newBookData.setId(null);
         Book newBookEntity = mapper.map(newBookData, Book.class);
 
         newBookEntity = booksRepo.save(newBookEntity);

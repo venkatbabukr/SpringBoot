@@ -22,6 +22,6 @@ public interface BooksRepository extends JpaRepository<Book, Long> {
 
     // findBy, findAllBy are one and the same. Having this method name here just for reference
     // that we can use findAll as well...
-    List<Book> findAllByPriceGreaterThan(Double price);
+    List<Book> findAllByPriceBetween(Double startPrice, Double endPrice);
 
 }

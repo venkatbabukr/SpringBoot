@@ -60,9 +60,9 @@ public class BooksEndpoint {
     }
 
     @RequestMapping(path = "/search/price", method = RequestMethod.GET)
-    public List<Book> searchByPriceRange(@RequestParam("q") Double startPrice) {
-        log.debug("Entering searchByPriceRange(startPrice={})", startPrice);
-        return booksSvc.searchByPriceRange(startPrice);
+    public List<Book> searchByPriceRange(@RequestParam("lp") Double leastPrice, @RequestParam("hp") Double highestPrice) {
+        log.debug("Entering searchByPriceRange(startPrice={})", leastPrice);
+        return booksSvc.searchByPriceRange(leastPrice, highestPrice);
     }
 
     @RequestMapping(method = RequestMethod.POST)
