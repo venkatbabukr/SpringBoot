@@ -91,3 +91,6 @@ Given below is list of concepts covered in the project so far.
 
 ## Aspect oriented programming
 1. [@LogExecutionTime](../common/src/main/java/venkat/common/logging/aop/LogExecutionTime.java)
+
+## TODO
+1. JPA @Subselect, @RestResource, @RepositoryRestResource etc…
