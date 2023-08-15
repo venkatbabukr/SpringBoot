@@ -11,6 +11,7 @@ import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.connection.lettuce.LettucePoolingClientConfiguration;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.serializer.GenericToStringSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
@@ -65,6 +66,13 @@ public class RedisConfig {
 		template.setConnectionFactory(getLettuceConnectionFactory(lettucePoolConfig));
 		template.setValueSerializer(new GenericToStringSerializer<Object>(Object.class));
 		return template;
+	}
+
+	@Bean
+	public RedisMessageListenerContainer messageListenerContainer(LettucePoolingClientConfiguration lettucePoolConfig) {
+		RedisMessageListenerContainer rmlc = new RedisMessageListenerContainer();
+		rmlc.setConnectionFactory(getLettuceConnectionFactory(lettucePoolConfig));
+		return rmlc;
 	}
 
 }

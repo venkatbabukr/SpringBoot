@@ -2,12 +2,10 @@ package venkat.springboot.simple.redis;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-
-import venkat.springboot.simple.redis.config.properties.RedisConfigProperties;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
 @SpringBootApplication
-@EnableConfigurationProperties(RedisConfigProperties.class)
+@ConfigurationPropertiesScan
 public class RedisDemoApplication {
 
 	public static void main(String[] args) {
