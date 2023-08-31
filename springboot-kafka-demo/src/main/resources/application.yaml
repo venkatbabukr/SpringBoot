@@ -1,0 +1,34 @@
+spring:
+  application.name: springboot-kafka-demo
+app:
+  kafka:
+    global.props:
+      common:
+        bootstrap.servers: localhost:9092
+        client.id: venkat-${spring.application.name}
+      producer:
+        acks: all
+        batch.size:
+        buffer.memory:
+        retries: 0
+        compression.type:
+        key.serializer: org.apache.kafka.common.serialization.StringSerializer
+        value.serializer: org.apache.kafka.common.serialization.StringSerializer
+      consumer:
+        isolation.level:
+        auto.offset.reset: earliest
+        fetch:
+          min.bytes:
+          max.wait.ms:
+        max.poll.records:
+        enable.auto.commit: false
+        auto.commit.interval.ms: abcd
+        key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value.deserializer: org.apache.kafka.common.serialization.StringDeserialize
+# Need to revisit this.
+#
+#      groups:
+#        - name: G1
+#          group.id: venkat-${spring.application.name}-G1
+#          props:
+#            p1: v1
