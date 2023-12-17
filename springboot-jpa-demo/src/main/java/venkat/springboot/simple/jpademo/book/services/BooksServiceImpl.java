@@ -13,7 +13,6 @@ import org.springframework.data.domain.Sort.Order;
 import org.springframework.stereotype.Service;
 
 import venkat.common.logging.aop.LogExecutionTime;
-import venkat.springboot.simple.jpademo.author.entity.projections.BooksCountByAuthor;
 import venkat.springboot.simple.jpademo.book.dto.BookData;
 import venkat.springboot.simple.jpademo.book.entity.Book;
 import venkat.springboot.simple.jpademo.book.exceptions.BookNotFoundException;
