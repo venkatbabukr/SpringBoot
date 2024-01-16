@@ -28,7 +28,12 @@ public class UserActivityEndpoint {
 	}
 
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<UserActivityByDay> getForYearMonth(@RequestParam("y") int year, @RequestParam("m") int month) {
+    public List<UserActivity> getAllActivities() {
+		return uaSvc.getAllActivities();
+	}
+
+	@GetMapping(path = "/ym", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<UserActivityByDay> getForYearMonth(@RequestParam("y") int year, @RequestParam("m") int month) {
 		return uaSvc.getForYearMonth(year, month);
 	}
 

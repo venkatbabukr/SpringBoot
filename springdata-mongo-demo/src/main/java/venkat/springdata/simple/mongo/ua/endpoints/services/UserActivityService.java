@@ -31,4 +31,8 @@ public class UserActivityService {
 		return uaRepo.findBetweenDates(ym.atDay(1), ym.atEndOfMonth());
 	}
 
+	public List<UserActivity> getAllActivities() {
+		return uaRepo.findAll();
+	}
+
 }
