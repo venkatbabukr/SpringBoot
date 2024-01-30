@@ -6,7 +6,7 @@ import org.springframework.data.domain.Sort.Direction;
 
 import venkat.springboot.simple.jpademo.book.dto.BookData;
 import venkat.springboot.simple.jpademo.book.entity.Book;
-import venkat.springboot.simple.jpademo.constants.BookCategory;
+import venkat.springboot.simple.jpademo.book.enums.BookCategory;
 
 public interface BooksService {
 

@@ -1,4 +1,4 @@
-package venkat.springboot.simple.jpademo.constants;
+package venkat.springboot.simple.jpademo.book.enums;
 
 public enum BookCategory {
     SCIENTIFIC,

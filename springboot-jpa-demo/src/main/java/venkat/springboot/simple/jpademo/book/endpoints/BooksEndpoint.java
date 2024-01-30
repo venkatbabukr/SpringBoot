@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.extern.slf4j.Slf4j;
 import venkat.springboot.simple.jpademo.book.dto.BookData;
 import venkat.springboot.simple.jpademo.book.entity.Book;
+import venkat.springboot.simple.jpademo.book.enums.BookCategory;
 import venkat.springboot.simple.jpademo.book.services.BooksService;
 import venkat.springboot.simple.jpademo.common.validation.ValidationGroups.OnCreate;
-import venkat.springboot.simple.jpademo.constants.BookCategory;
 
 @Slf4j
 @RestController

@@ -15,10 +15,10 @@ import org.springframework.stereotype.Service;
 import venkat.common.logging.aop.LogExecutionTime;
 import venkat.springboot.simple.jpademo.book.dto.BookData;
 import venkat.springboot.simple.jpademo.book.entity.Book;
+import venkat.springboot.simple.jpademo.book.enums.BookCategory;
 import venkat.springboot.simple.jpademo.book.exceptions.BookNotFoundException;
 import venkat.springboot.simple.jpademo.book.repos.BooksRepository;
 import venkat.springboot.simple.jpademo.common.exceptions.NotFoundResponseStatusException;
-import venkat.springboot.simple.jpademo.constants.BookCategory;
 
 @Service
 public class BooksServiceImpl implements BooksService {
@@ -28,12 +28,6 @@ public class BooksServiceImpl implements BooksService {
 
 	@Autowired
     private BooksRepository booksRepo;
-
-    @PostConstruct
-    private void initBooksData() {
-        booksRepo.save(new Book("Book 1 from service", "Author 4", "ISBN4", BookCategory.ECONOMICS, "349.99"));
-        booksRepo.save(new Book("Book 2 from service", "Author 5", "ISBN5", BookCategory.POLITICS, "249.99"));
-    }
 
     @Override
     @LogExecutionTime

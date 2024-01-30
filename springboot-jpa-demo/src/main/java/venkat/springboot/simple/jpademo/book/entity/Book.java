@@ -16,8 +16,8 @@ import org.hibernate.envers.Audited;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import venkat.springboot.simple.jpademo.book.enums.BookCategory;
 import venkat.springboot.simple.jpademo.common.entity.base.AuditedModifiableEntity;
-import venkat.springboot.simple.jpademo.constants.BookCategory;
 
 @Data
 @EqualsAndHashCode(callSuper = true)

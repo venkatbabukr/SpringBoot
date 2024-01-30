@@ -12,9 +12,9 @@ import org.springframework.validation.annotation.Validated;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import venkat.springboot.simple.jpademo.book.enums.BookCategory;
 import venkat.springboot.simple.jpademo.common.validation.ValidationGroups.OnCreate;
 import venkat.springboot.simple.jpademo.common.validation.ValidationGroups.OnEdit;
-import venkat.springboot.simple.jpademo.constants.BookCategory;
 
 @Data
 @NoArgsConstructor

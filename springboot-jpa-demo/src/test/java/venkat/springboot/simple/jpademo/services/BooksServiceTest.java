@@ -24,10 +24,10 @@ import org.springframework.data.domain.Sort;
 
 import venkat.springboot.simple.jpademo.book.dto.BookData;
 import venkat.springboot.simple.jpademo.book.entity.Book;
+import venkat.springboot.simple.jpademo.book.enums.BookCategory;
 import venkat.springboot.simple.jpademo.book.repos.BooksRepository;
 import venkat.springboot.simple.jpademo.book.services.BooksService;
 import venkat.springboot.simple.jpademo.book.services.BooksServiceImpl;
-import venkat.springboot.simple.jpademo.constants.BookCategory;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)

@@ -48,6 +48,9 @@ spring:
     show-sql: true
   h2:
     console.enabled: true
+app:
+  init:
+    load-data: true
 logging:
   level:
     # Ref: https://www.baeldung.com/sql-logging-spring-boot
