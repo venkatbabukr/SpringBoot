@@ -46,7 +46,7 @@ Given below is list of concepts covered in the project so far.
 
 ## Services
 1. @PostConstruct
-     * [Initialize database with data](src/main/java/venkat/springboot/simple/jpademo/book/services/BooksServiceImpl.java)
+     * [Initialize database with data](src/main/java/venkat/springboot/simple/jpademo/common/services/LoadDatabase.java)
 
 ## JPA
 1. [Application yaml](src/main/resources/application.yaml)
@@ -81,13 +81,21 @@ Given below is list of concepts covered in the project so far.
     </tr>
 </table>
 
-2. Audited entities
+2. Entity-Relationships &amp; annotations
+<table>
+    <tr>
+        <th>Relationship type</th>
+        <th>Samples</th>
+    </tr>
+</table>
+
+3. Audited entities
      * [Creation audits](src/main/java/venkat/springboot/simple/jpademo/common/entity/base/AuditedEntity.java)
      * [Modification audits](src/main/java/venkat/springboot/simple/jpademo/common/entity/base/AuditedModifiableEntity.java)
      * [Get the username for audits](src/main/java/venkat/springboot/simple/jpademo/common/entity/audit/AppAuditorAwareImpl.java)
-3. [Sorting](src/main/java/venkat/springboot/simple/jpademo/book/services/BooksServiceImpl.java#searchByTitle): BooksServiceImpl.java#searchByTitle
+4. [Sorting](src/main/java/venkat/springboot/simple/jpademo/book/services/BooksServiceImpl.java#searchByTitle): BooksServiceImpl.java#searchByTitle
      * [Direction](src/main/java/venkat/springboot/simple/jpademo/book/services/BooksServiceImpl.java#searchByTitle): BooksServiceImpl.java#searchByTitle
-4. [Derived queries](src/main/java/venkat/springboot/simple/jpademo/book/repos/BooksRepository.java)
+5. [Derived queries](src/main/java/venkat/springboot/simple/jpademo/book/repos/BooksRepository.java)
 
 ## Aspect oriented programming
 1. [@LogExecutionTime](../common/src/main/java/venkat/common/logging/aop/LogExecutionTime.java)

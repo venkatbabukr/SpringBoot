@@ -42,10 +42,19 @@ public class LoadDatabase {
 
 		
 		List<Company> companies = Arrays.asList(
-				new Company("Test Company1",
-						Address.builder().number("10").street("Borivalli").state("Maharastra").pinCode("670034").build()),
-				new Company("Test Company2",
-						Address.builder().number("354").street("Akkipet").state("Karnataka").pinCode("560063").build()));
+				Company.builder()
+					.name("Test Company1")
+					.hqAddress(Address.builder().number("10").street("Borivalli").city("Mumbai").state("Maharastra")
+							.pinCode("670034").build())
+					.otherLocations(Arrays.asList(
+							Address.builder().number("25").street("Lodhi road").city("New Delhi").state("Delhi").pinCode("110342").build(),
+							Address.builder().number("585").street("Netaji marg").city("Kolkata").state("West Bengal").pinCode("700025").build()))
+					.build(),
+					Company.builder()
+					.name("Test Company2")
+					.hqAddress(Address.builder().number("354").street("Akkipet").city("Bengaluru").state("Karnataka")
+							.pinCode("560053").build())
+					.build());
 		companiesRepo.saveAll(companies);
 		log.info("Loaded all companies data!");
 	}

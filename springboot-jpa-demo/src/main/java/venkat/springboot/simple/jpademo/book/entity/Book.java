@@ -8,6 +8,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -22,7 +23,13 @@ import venkat.springboot.simple.jpademo.common.entity.base.AuditedModifiableEnti
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "BOOK")
+@Table(name = "BOOK",
+	// Normally we don't create indexes in entity classes. We create and manage indexes
+	// as part of database management scripts.
+	indexes = {
+			@Index(columnList = "author"),
+			@Index(columnList = "isbn", unique = true),
+			@Index(columnList = "category") })
 @Audited
 @NoArgsConstructor
 public class Book extends AuditedModifiableEntity {
@@ -48,7 +55,7 @@ public class Book extends AuditedModifiableEntity {
     @Column(name = "AUTHOR")
     private String author;
 
-    @Column(name = "ISBN")
+    @Column(name = "ISBN", unique = true)
     private String isbn;
 
     @Column(name = "CATEGORY")
