@@ -87,6 +87,28 @@ Given below is list of concepts covered in the project so far.
         <th>Relationship type</th>
         <th>Samples</th>
     </tr>
+    <tr>
+        <td colspan="2">
+            <b><i><u>Associations</u></i></b>
+        </td>
+    </tr>
+    <tr>
+        <td>Unidirectional One-to-One mapping</td>
+        <td><a href="src/main/java/venkat/springboot/simple/jpademo/aller/entity/Company.java">Company</a> to HQ <a href="src/main/java/venkat/springboot/simple/jpademo/aller/entity/Address.java">address</a></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <b><i><u>Inheritance</u></i></b>
+        </td>
+    </tr>
+    <tr>
+        <td>Simple mapped super class</td>
+        <td><a href="src/main/java/venkat/springboot/simple/jpademo/aller/entity/Person.java">Person</a> - <a href="src/main/java/venkat/springboot/simple/jpademo/aller/entity/Employee.java">Employee</a></td>
+    </tr>
+    <tr>
+        <td>Discriminator</td>
+        <td><a href="src/main/java/venkat/springboot/simple/jpademo/aller/entity/Person.java">Person</a> - <a href="src/main/java/venkat/springboot/simple/jpademo/aller/entity/Employee.java">Employee</a></td>
+    </tr>
 </table>
 
 3. Audited entities
