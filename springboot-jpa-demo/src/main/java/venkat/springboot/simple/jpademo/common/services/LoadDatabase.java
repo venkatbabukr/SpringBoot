@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
 import venkat.common.logging.aop.LogExecutionTime;
-import venkat.springboot.simple.jpademo.aller.entity.Address;
-import venkat.springboot.simple.jpademo.aller.entity.Company;
-import venkat.springboot.simple.jpademo.aller.repos.CompaniesRepository;
+import venkat.springboot.simple.jpademo.aller.associations.entity.Address;
+import venkat.springboot.simple.jpademo.aller.associations.entity.Company;
+import venkat.springboot.simple.jpademo.aller.associations.repos.CompaniesRepository;
 import venkat.springboot.simple.jpademo.book.entity.Book;
 import venkat.springboot.simple.jpademo.book.enums.BookCategory;
 import venkat.springboot.simple.jpademo.book.repos.BooksRepository;

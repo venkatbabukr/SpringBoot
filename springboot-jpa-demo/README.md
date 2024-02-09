@@ -94,7 +94,7 @@ Given below is list of concepts covered in the project so far.
     </tr>
     <tr>
         <td>Unidirectional One-to-One mapping</td>
-        <td><a href="src/main/java/venkat/springboot/simple/jpademo/aller/entity/Company.java">Company</a> to HQ <a href="src/main/java/venkat/springboot/simple/jpademo/aller/entity/Address.java">address</a></td>
+        <td><a href="src/main/java/venkat/springboot/simple/jpademo/aller/associations/entity/Company.java">Company</a> to HQ <a href="src/main/java/venkat/springboot/simple/jpademo/aller/associations/entity/Address.java">address</a></td>
     </tr>
     <tr>
         <td colspan="2">
@@ -103,11 +103,15 @@ Given below is list of concepts covered in the project so far.
     </tr>
     <tr>
         <td>Simple mapped super class</td>
-        <td><a href="src/main/java/venkat/springboot/simple/jpademo/aller/entity/Person.java">Person</a> - <a href="src/main/java/venkat/springboot/simple/jpademo/aller/entity/Employee.java">Employee</a></td>
+        <td><a href="src/main/java/venkat/springboot/simple/jpademo/aller/inheritance/entity/Person.java">Person</a> - <a href="src/main/java/venkat/springboot/simple/jpademo/aller/inheritance/entity/Employee.java">Employee</a></td>
     </tr>
     <tr>
-        <td>Discriminator</td>
-        <td><a href="src/main/java/venkat/springboot/simple/jpademo/aller/entity/Person.java">Person</a> - <a href="src/main/java/venkat/springboot/simple/jpademo/aller/entity/Employee.java">Employee</a></td>
+        <td>Single table Discriminator</td>
+        <td><a href="src/main/java/venkat/springboot/simple/jpademo/aller/inheritance/entity/Product.java">Product</a> - <a href="src/main/java/venkat/springboot/simple/jpademo/aller/inheritance/entity/Pen.java">Pen</a>, <a href="src/main/java/venkat/springboot/simple/jpademo/aller/inheritance/entity/Scale.java">Scale</a></td>
+    </tr>
+    <tr>
+        <td>Joined Discriminator</td>
+        <td><a href="src/main/java/venkat/springboot/simple/jpademo/aller/inheritance/entity/Vehicle.java">Vehicle</a> - <a href="src/main/java/venkat/springboot/simple/jpademo/aller/inheritance/entity/Car.java">Car</a>, <a href="src/main/java/venkat/springboot/simple/jpademo/aller/inheritance/entity/Truck.java">Truck</a></td>
     </tr>
 </table>
 

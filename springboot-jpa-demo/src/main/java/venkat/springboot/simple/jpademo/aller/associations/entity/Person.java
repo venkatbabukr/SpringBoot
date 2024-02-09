@@ -1,4 +1,4 @@
-package venkat.springboot.simple.jpademo.aller.entity;
+package venkat.springboot.simple.jpademo.aller.associations.entity;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -8,7 +8,7 @@ import javax.persistence.MappedSuperclass;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import venkat.springboot.simple.jpademo.aller.enums.Sex;
+import venkat.springboot.simple.jpademo.aller.associations.enums.Sex;
 
 @Data
 @EqualsAndHashCode(of = "id")

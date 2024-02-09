@@ -1,4 +1,4 @@
-package venkat.springboot.simple.jpademo.aller.entity;
+package venkat.springboot.simple.jpademo.aller.associations.entity;
 
 import java.util.List;
 

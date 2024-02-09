@@ -1,4 +1,4 @@
-package venkat.springboot.simple.jpademo.aller.entity;
+package venkat.springboot.simple.jpademo.aller.associations.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
