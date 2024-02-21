@@ -59,6 +59,12 @@ public class AppBasicSecurityConfig {
 
     	if (securityProperties.isEnabled()) {
 	    	http.csrf()
+	    	    // This repository is sufficient and will work even whith stateless sessions.
+	    	    // Two common CSRF tokens:
+	    	    //    1. Session-based tokens: Tokens tied to User session management
+	    	    //    2. Stateless tokens: Compare the token present in cookie with the token sent in header.
+	    	    //           Works simply because an attacker site can't generate the header in their
+	    	    //           embedded pages on the fly.
 	    		.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
 	
 	    	http.sessionManagement()

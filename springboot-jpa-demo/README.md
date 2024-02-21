@@ -129,3 +129,10 @@ Given below is list of concepts covered in the project so far.
 ## TODO
 1. JPA @Subselect, @RestResource, @RepositoryRestResource etc…
      * See links: https://medium.com/@jonathan.turnock/exposing-subset-view-of-the-database-with-a-jpa-repository-over-rest-5b9d6e07344b
+2. Spring security
+     * CSRF: See the library com.allanditzel.spring-security-csrf-token-filter
+3. Unit tests: Use Jupiter, Mockito, Hamcrest, AssertJ, Spring MockRestServiceServer etc...
+     * See links: https://www.baeldung.com/spring-mock-rest-template
+4. Incorporate other libraries like:
+     * JSONLogic (https://jsonlogic.com/)
+

@@ -61,4 +61,22 @@ logging:
     venkat.common: DEBUG
     venkat.springboot.simple.jpademo: DEBUG
   pattern:
+    # Logging patterns:
+    # %d {}: Log with given date/time format
+    # %t: Thread name
+    # %-{n}p: Log level
+    # %c: Category name (Or logger name): Class name of the caller
+    # %L: Line number
+    # %m: Log message
+    # %n: Newline separator
+    #
+    # Other logging patterns:
+    # %M: Method name
+    # %C: Fully qualified class name
+    # 
+    # Date & time
+    # Logger name, priority/Log level etc...
+    # Class name (Lot of time same as logger name), method name, line number etc...
+    # Thread name, thread's nested diagnostic context, thread's mapped diagnostic context
+    # Ref links: https://www.codejava.net/coding/common-conversion-patterns-for-log4js-patternlayout
     console: "%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p %c{1}:%L - %m%n"

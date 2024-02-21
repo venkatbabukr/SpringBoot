@@ -49,6 +49,8 @@ dependencies {
 
     implementation project(':common')
 
+    // Unit test frameworks:
+    // Jupiter, SpringUnit, Mockito, [Hamcrest, AssertJ (for assertions)]
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
